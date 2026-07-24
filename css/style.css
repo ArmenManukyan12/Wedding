@@ -3,24 +3,21 @@
         STYLE CSS
 =================================== */
 
-
 /* ---------- RESET ---------- */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    -webkit-tap-highlight-color: transparent;
 }
-
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior:
+        smooth;
 }
 
-
 body {
-
     width: 100%;
     overflow-x: hidden;
 
@@ -28,32 +25,23 @@ body {
 
     color: #3c3c3c;
 
-    font-family: "Work Sans", sans-serif;
-
+    font-family: "Playwrite ID", cursive;
+    -webkit-overflow-scrolling: touch;
 }
-
 
 img {
-
+    -webkit-user-drag: none;
     max-width: 100%;
     display: block;
-
 }
-
 
 button {
-
     font-family: inherit;
-
 }
-
-
 
 /* ---------- VARIABLES ---------- */
 
-
 :root {
-
     --gold: #b08d57;
 
     --light-gold: #d6b98c;
@@ -66,24 +54,16 @@ button {
 
     --text: #3c3c3c;
 
-    --shadow:
-    0 20px 50px rgba(0,0,0,0.12);
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
 
-    --glass:
-    rgba(255,255,255,0.35);
-
+    --glass: rgba(255, 255, 255, 0.35);
 }
-
-
 
 /* ===================================
             ENVELOPE
 =================================== */
 
-
 #envelope-screen {
-
-
     position: fixed;
 
     inset: 0;
@@ -92,15 +72,7 @@ button {
 
     height: 100vh;
 
-
-    background:
-
-    radial-gradient(
-        circle at center,
-        #fff,
-        #eee3d5
-    );
-
+    background: radial-gradient(circle at center, #fff, #eee3d5);
 
     display: flex;
 
@@ -108,105 +80,57 @@ button {
 
     align-items: center;
 
-
     z-index: 99999;
 
-
     transition:
-    opacity 1s ease,
-    visibility 1s ease;
-
-
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
-
-
 #envelope-screen.hide {
-
-
     opacity: 0;
 
     visibility: hidden;
-
-
 }
 
-
-
 .envelope {
+    width: min(420px, 85vw);
 
-
-    width: 420px;
-
-    height: 280px;
+    height: min(280px, 60vw);
 
     position: relative;
 
-
     perspective: 1000px;
-
-
 }
 
-
-
-
 .envelope-back {
-
-
     position: absolute;
 
     inset: 0;
 
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #ffffff,
-        #eee0cb
-    );
-
+    background: linear-gradient(135deg, #ffffff, #eee0cb);
 
     border-radius: 15px;
 
-
-    box-shadow:
-
-    0 30px 70px rgba(0,0,0,.18);
-
-
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
 }
 
-
-
-
 .letter {
-
-
     position: absolute;
-
 
     width: 85%;
 
     height: 85%;
 
-
     left: 7.5%;
 
     top: 7%;
 
-
-    background:
-
-    rgba(255,255,255,.8);
-
+    background: rgba(255, 255, 255, 0.8);
 
     backdrop-filter: blur(15px);
 
-
     border-radius: 12px;
-
 
     display: flex;
 
@@ -216,2045 +140,983 @@ button {
 
     align-items: center;
 
-
     text-align: center;
-
 
     z-index: 2;
 
-
-    box-shadow:
-
-    0 10px 30px rgba(0,0,0,.08);
-
-
-
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-
-
-
 .letter-date {
-
-
     font-size: 14px;
 
     letter-spacing: 5px;
 
     color: var(--gold);
 
-
     margin-bottom: 20px;
-
-
 }
 
-
-
 .letter h2 {
-
-
     font-family: "Playwrite ID", cursive;
-
 
     font-size: 38px;
 
-
     font-weight: 300;
 
-
     color: #4b3a25;
-
-
 }
 
-
-
 .letter p {
-
-
     margin-top: 15px;
-
 
     font-size: 18px;
 
-
     color: #777;
-
-
 }
 
-
-
-
-
 #openInvitation {
-
-
     margin-top: 25px;
-
 
     padding: 14px 35px;
 
-
     border-radius: 50px;
-
 
     border: 1px solid var(--gold);
 
+    background: linear-gradient(135deg, #fff, #f3e4ce);
 
-    background:
-
-    linear-gradient(
-        135deg,
-        #fff,
-        #f3e4ce
-    );
-
-
-    color:
-
-    #8b6b3f;
-
+    color: #8b6b3f;
 
     cursor: pointer;
 
-
-    transition: .4s;
-
-
+    transition: 0.4s;
 }
-
-
-
 
 #openInvitation:hover {
-
-
     background: var(--gold);
 
-
-    color:white;
-
+    color: white;
 
     transform: translateY(-3px);
-
-
 }
 
-
-
-
 .envelope-flap {
-
-
     position: absolute;
 
+    top: 0;
 
-    top:0;
+    left: 0;
 
+    width: 100%;
 
-    left:0;
+    height: 50%;
 
+    background: linear-gradient(135deg, #ead7b8, #fff);
 
-    width:100%;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
 
-
-    height:50%;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #ead7b8,
-        #fff
-    );
-
-
-    clip-path:
-
-    polygon(
-    0 0,
-    100% 0,
-    50% 100%
-    );
-
-
-    z-index:3;
-
+    z-index: 3;
 
     transform-origin: top;
 
-
-    transition:
-
-    transform 1s ease;
-
-
+    transition: transform 1s ease;
 }
-
-
-
 
 .envelope.open .envelope-flap {
-
-
-    transform:
-
-    rotateX(180deg);
-
-
+    transform: rotateX(180deg);
 }
-
-
 
 /* ---------- WEBSITE HIDDEN UNTIL OPEN ---------- */
 
-
 #website {
+    opacity: 0;
 
-
-    opacity:0;
-
-
-    transition:
-
-    opacity 1.5s ease;
-
-
+    transition: opacity 1.5s ease;
 }
-
-
 
 #website.show {
-
-
-    opacity:1;
-
-
+    opacity: 1;
 }
+
 /* ===================================
             HERO SECTION
 =================================== */
 
-
 .hero {
-
     height: 100vh;
 
-    width:100%;
+    width: 100%;
 
-    position:relative;
+    position: relative;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    align-items:center;
+    align-items: center;
 
+    background-image: url("../img/Armen + Tatev _ Beach-42.jpg");
 
-    background-image:
+    background-size: cover;
 
-    url("../img/Armen + Tatev _ Beach-42.jpg");
+    background-position: center;
 
-
-    background-size:cover;
-
-    background-position:center;
-
-
-    overflow:hidden;
-
-
+    overflow: hidden;
 }
-
-
 
 .hero-overlay {
+    position: absolute;
 
+    inset: 0;
 
-    position:absolute;
-
-    inset:0;
-
-
-    background:
-
-    linear-gradient(
-        rgba(0,0,0,.35),
-        rgba(0,0,0,.45)
-    );
-
-
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45));
 }
-
-
-
-
 
 .hero-content {
+    position: relative;
 
-    position:relative;
+    z-index: 2;
 
-    z-index:2;
+    color: white;
 
-    color:white;
+    text-align: center;
 
-    text-align:center;
+    max-width: 900px;
 
-    max-width:900px;
+    padding: 20px;
 
-    padding:20px;
+    height: 100%;
 
-    height:100%;
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    justify-content: center;
 
-    justify-content:center;
-
-    align-items:center;
-
+    align-items: center;
 }
 
-
-
-
-
 .hero-date {
-
     position: absolute;
 
     top: 40px;
 
-    /* left: 50vw; */
+    left: 50%;
 
     transform: translateX(-50%);
 
-    width: max-content;
+    white-space: nowrap;
+}
 
+.hero-title {
+    font-family: "Playwrite ID", cursive;
 
-    font-size: 22px;
+    font-size: 90px;
 
-    letter-spacing: 8px;
+    font-weight: 300;
 
-    color: #fff;
-
+    line-height: 1.2;
 
     opacity: 0;
 
-    animation: fadeDown 1.5s forwards;
-
-
-    z-index: 5;
-
+    animation: titleShow 2s 0.4s forwards;
 }
-
-
-
-
-
-
-
-.hero-title {
-
-
-    font-family:
-
-    "Playwrite ID", cursive;
-
-
-    font-size:90px;
-
-
-    font-weight:300;
-
-
-    line-height:1.2;
-
-
-    opacity:0;
-
-
-    animation:
-
-    titleShow 2s .4s forwards;
-
-
-}
-
-
-
 
 .hero-title span {
-
-
-    color:
-
-    #d6b98c;
-
-
+    color: #d6b98c;
 }
-
-
-
-
 
 .hero-text {
+    margin-top: 35px;
 
+    font-size: 22px;
 
-    margin-top:35px;
+    line-height: 1.8;
 
+    max-width: 700px;
 
-    font-size:22px;
+    margin-left: auto;
 
+    margin-right: auto;
 
-    line-height:1.8;
+    opacity: 0;
 
-
-    max-width:700px;
-
-
-    margin-left:auto;
-
-    margin-right:auto;
-
-
-    opacity:0;
-
-
-    animation:
-
-    fadeUp 1.5s 1s forwards;
-
-
+    animation: fadeUp 1.5s 1s forwards;
 }
-
-
-
 
 /* ---------- SCROLL ---------- */
 
-
 .hero-scroll {
+    position: absolute;
 
+    bottom: 40px;
 
-    position:absolute;
+    left: 50%;
 
+    transform: translateX(-50%);
 
-    bottom:40px;
+    display: flex;
 
-    left:50%;
+    flex-direction: column;
 
+    align-items: center;
 
-    transform:translateX(-50%);
+    color: white;
 
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-
-    color:white;
-
-
-    opacity:.8;
-
-
+    opacity: 0.8;
 }
-
-
 
 .hero-scroll span {
+    font-size: 13px;
 
+    letter-spacing: 3px;
 
-    font-size:13px;
-
-    letter-spacing:3px;
-
-
-    margin-bottom:15px;
-
-
+    margin-bottom: 15px;
 }
-
-
 
 .mouse {
+    width: 28px;
 
+    height: 45px;
 
-    width:28px;
+    border: 2px solid white;
 
-    height:45px;
+    border-radius: 20px;
 
+    display: flex;
 
-    border:
-
-    2px solid white;
-
-
-    border-radius:20px;
-
-
-    display:flex;
-
-    justify-content:center;
-
-
+    justify-content: center;
 }
-
-
 
 .wheel {
+    width: 5px;
 
+    height: 10px;
 
-    width:5px;
+    background: white;
 
-    height:10px;
+    border-radius: 10px;
 
+    margin-top: 8px;
 
-    background:white;
-
-
-    border-radius:10px;
-
-
-    margin-top:8px;
-
-
-    animation:
-
-    scrollWheel 1.5s infinite;
-
-
+    animation: scrollWheel 1.5s infinite;
 }
-
-
-
-
 
 /* ===================================
             AUDIO BUTTON
 =================================== */
 
-
 .audio-btn {
+    position: fixed;
 
+    right: 25px;
 
-    position:fixed;
+    bottom: 25px;
 
+    width: 60px;
 
-    right:25px;
+    height: 60px;
 
+    border-radius: 50%;
 
-    bottom:25px;
+    border: none;
 
+    cursor: pointer;
 
-    width:60px;
+    z-index: 100;
 
-    height:60px;
+    background: linear-gradient(135deg, #d6b98c, #b08d57);
 
+    color: white;
 
-    border-radius:50%;
+    font-size: 22px;
 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 
-    border:none;
-
-
-    cursor:pointer;
-
-
-    z-index:100;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #d6b98c,
-        #b08d57
-    );
-
-
-    color:white;
-
-
-    font-size:22px;
-
-
-    box-shadow:
-
-    0 15px 35px rgba(0,0,0,.25);
-
-
-    transition:.3s;
-
-
+    transition: 0.3s;
 }
-
-
 
 .audio-btn:hover {
-
-
-    transform:scale(1.1);
-
-
+    transform: scale(1.1);
 }
-
-
-
-
 
 /* ===================================
             COUNTDOWN
 =================================== */
 
-
 .countdown-section {
+    padding: 120px 20px;
 
+    background: linear-gradient(180deg, #fff, #f8f4ee);
 
-    padding:120px 20px;
-
-
-    background:
-
-    linear-gradient(
-        180deg,
-        #fff,
-        #f8f4ee
-    );
-
-
-    text-align:center;
-
-
+    text-align: center;
 }
-
-
-
-
 
 .section-title {
+    position: relative;
 
-
-    position:relative;
-
-
-    margin-bottom:70px;
-
-
+    margin-bottom: 70px;
 }
-
-
 
 .bg-text {
+    position: absolute;
 
+    top: 50%;
 
-    position:absolute;
+    left: 50%;
 
+    transform: translate(-50%, -50%);
 
-    top:50%;
+    color: rgba(176, 141, 87, 0.08);
 
-    left:50%;
+    font-size: clamp(40px, 12vw, 100px);
 
+    max-width: 100%;
 
-    transform:
+    overflow: hidden;
 
-    translate(-50%,-50%);
-
-
-    font-size:100px;
-
-
-    color:
-
-    rgba(176,141,87,.08);
-
-
-    white-space:nowrap;
-
-
-    pointer-events:none;
-
-
+    pointer-events: none;
 }
-
-
-
 
 .section-title h2 {
+    position: relative;
 
+    z-index: 2;
 
-    position:relative;
+    font-family: serif;
 
+    font-weight: 300;
 
-    z-index:2;
+    font-size: 48px;
 
-
-    font-family:serif;
-
-
-    font-weight:300;
-
-
-    font-size:48px;
-
-
-    color:#4b3a25;
-
-
+    color: #4b3a25;
 }
-
-
-
-
 
 .countdown {
+    display: flex;
 
+    justify-content: center;
 
-    display:flex;
+    align-items: center;
 
+    gap: 30px;
 
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    gap:30px;
-
-
-    margin-bottom:100px;
-
-
+    margin-bottom: 100px;
 }
-
-
-
-
 
 .time-box {
+    min-width: 130px;
 
+    padding: 25px;
 
-    min-width:130px;
+    background: var(--glass);
 
+    backdrop-filter: blur(15px);
 
-    padding:25px;
+    border-radius: 20px;
 
-
-    background:
-
-    var(--glass);
-
-
-    backdrop-filter:blur(15px);
-
-
-    border-radius:20px;
-
-
-    box-shadow:
-
-    var(--shadow);
-
-
+    box-shadow: var(--shadow);
 }
-
-
-
-
 
 .time-box span {
+    font-family: serif;
 
+    font-size: clamp(35px, 12vw, 90px);
 
-    font-family:serif;
+    color: var(--gold);
 
-
-    font-size:90px;
-
-
-    color:
-
-    var(--gold);
-
-
-    font-weight:300;
-
-
+    font-weight: 300;
 }
-
-
-
-
 
 .time-box p {
+    margin-top: 10px;
 
-
-    margin-top:10px;
-
-
-    font-size:22px;
-
-
+    font-size: 22px;
 }
-
-
-
 
 .separator {
+    font-size: 70px;
 
-
-    font-size:70px;
-
-    color:var(--gold);
-
-
+    color: var(--gold);
 }
-
-
-
-
 
 .invite-text p {
+    max-width: 850px;
 
+    margin: auto;
 
-    max-width:850px;
+    font-size: 26px;
 
+    line-height: 1.8;
 
-    margin:auto;
-
-
-    font-size:26px;
-
-
-    line-height:1.8;
-
-
-    color:#777;
-
-
+    color: #777;
 }
+
 /* ===================================
             TIMELINE
 =================================== */
 
-
 .wedding-timeline {
+    padding: 120px 20px;
 
-    padding:120px 20px;
+    background: #fff;
 
-    background:#fff;
-
-    position:relative;
-
+    position: relative;
 }
-
-
 
 .timeline {
+    max-width: 1000px;
 
-    max-width:1000px;
+    margin: auto;
 
-    margin:auto;
+    position: relative;
 
-    position:relative;
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
-
-    gap:60px;
-
+    gap: 60px;
 }
-
-
 
 .timeline::before {
+    content: "";
 
+    position: absolute;
 
-    content:"";
+    left: 50%;
 
+    top: 0;
 
-    position:absolute;
+    width: 2px;
 
+    height: 100%;
 
-    left:50%;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
 
-
-    top:0;
-
-
-    width:2px;
-
-
-    height:100%;
-
-
-    background:
-
-    linear-gradient(
-        to bottom,
-        transparent,
-        var(--gold),
-        transparent
-    );
-
-
-    transform:translateX(-50%);
-
-
+    transform: translateX(-50%);
 }
-
-
-
 
 .timeline-item {
+    width: 50%;
 
-
-    width:50%;
-
-
-    position:relative;
-
-
+    position: relative;
 }
-
-
 
 .timeline-item.left {
+    align-self: flex-start;
 
+    padding-right: 70px;
 
-    align-self:flex-start;
-
-
-    padding-right:70px;
-
-
-    text-align:right;
-
-
+    text-align: right;
 }
-
-
-
 
 .timeline-item.right {
+    align-self: flex-end;
 
+    padding-left: 70px;
 
-    align-self:flex-end;
-
-
-    padding-left:70px;
-
-
-    text-align:left;
-
-
+    text-align: left;
 }
-
-
-
 
 .timeline-card {
+    padding: 35px;
 
-
-    padding:35px;
-
-
-    border-radius:25px;
-
-
+    border-radius: 25px;
 }
-
-
-
 
 .glass {
+    background: rgba(255, 255, 255, 0.45);
 
+    backdrop-filter: blur(18px);
 
-    background:
+    border: 1px solid rgba(255, 255, 255, 0.6);
 
-    rgba(255,255,255,.45);
-
-
-    backdrop-filter:
-
-    blur(18px);
-
-
-    border:
-
-    1px solid rgba(255,255,255,.6);
-
-
-    box-shadow:
-
-    0 20px 50px rgba(0,0,0,.08);
-
-
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
 }
-
-
-
 
 .timeline-card .time {
+    color: var(--gold);
 
+    font-size: 55px;
 
-    color:var(--gold);
-
-
-    font-size:55px;
-
-
-    font-family:serif;
-
-
+    font-family: serif;
 }
-
-
-
 
 .timeline-card h3 {
+    margin: 15px 0;
 
+    font-size: 28px;
 
-    margin:15px 0;
-
-
-    font-size:28px;
-
-
-    font-weight:400;
-
-
+    font-weight: 400;
 }
-
-
-
 
 .timeline-card p {
+    color: #777;
 
-
-    color:#777;
-
-
-    margin-bottom:10px;
-
-
+    margin-bottom: 10px;
 }
-
-
 
 .timeline-card strong {
-
-
-    color:#4b3a25;
-
-
+    color: #4b3a25;
 }
-
-
-
 
 .timeline-heart {
-
-
-    position:absolute;
-
-
-    left:50%;
-
-
-    transform:translateX(-50%);
-
-
-    width:50px;
-
-
-    height:50px;
-
-
-    border-radius:50%;
-
-
-    background:
-
-    var(--gold);
-
-
-    color:white;
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    font-size:20px;
-
-
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
 }
-
-
-
-
+.top-heart {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /* ===================================
             LOCATION
 =================================== */
 
-
 .weddingLocation {
+    padding: 120px 20px;
 
+    background: #f8f4ee;
 
-    padding:120px 20px;
-
-
-    background:
-
-    #f8f4ee;
-
-
-    text-align:center;
-
-
+    text-align: center;
 }
-
-
 
 .mainMaps {
+    max-width: 1100px;
 
+    margin: auto;
 
-    max-width:1100px;
+    display: grid;
 
+    grid-template-columns: repeat(3, 1fr);
 
-    margin:auto;
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-    repeat(3,1fr);
-
-
-    gap:35px;
-
-
+    gap: 35px;
 }
-
-
-
-
 
 .map-card {
+    border-radius: 25px;
 
+    overflow: hidden;
 
-    border-radius:25px;
-
-
-    overflow:hidden;
-
-
-    transition:.5s;
-
-
+    transition: 0.5s;
 }
-
-
-
-
 
 .map-card:hover {
-
-
-    transform:
-
-    translateY(-10px);
-
-
+    transform: translateY(-10px);
 }
-
-
-
 
 .map-image {
-
-
-    overflow:hidden;
-
-
+    overflow: hidden;
 }
-
-
-
-
 
 .map-image img {
+    width: 100%;
 
+    height: 300px;
 
-    width:100%;
+    object-fit: cover;
 
-
-    height:300px;
-
-
-    object-fit:cover;
-
-
-    transition:.6s;
-
-
+    transition: 0.6s;
 }
-
-
 
 .map-card:hover img {
-
-
-    transform:scale(1.08);
-
-
+    transform: scale(1.08);
 }
-
-
-
 
 .map-content {
-
-
-    padding:30px;
-
-
+    padding: 30px;
 }
-
-
 
 .map-content h3 {
+    font-size: 26px;
 
+    color: #4b3a25;
 
-    font-size:26px;
-
-
-    color:#4b3a25;
-
-
-    margin-bottom:25px;
-
-
+    margin-bottom: 25px;
 }
-
-
-
 
 .map-content a {
+    display: inline-block;
 
+    padding: 12px 30px;
 
-    display:inline-block;
+    border-radius: 50px;
 
+    background: var(--gold);
 
-    padding:12px 30px;
+    color: white;
 
+    text-decoration: none;
 
-    border-radius:50px;
-
-
-    background:
-
-    var(--gold);
-
-
-    color:white;
-
-
-    text-decoration:none;
-
-
-    transition:.3s;
-
-
+    transition: 0.3s;
 }
-
-
 
 .map-content a:hover {
-
-
-    background:#8f6b3d;
-
-
+    background: #8f6b3d;
 }
-
-
-
-
 
 /* ===================================
             FOOTER
 =================================== */
 
-
 .footer-image {
+    height: 100vh;
 
+    background-image: url("../img/Armen + Tatev _ Beach-52.jpg");
 
-    height:100vh;
+    background-size: cover;
 
+    background-position: center;
 
-    background-image:
+    position: relative;
 
-    url("../img/Armen + Tatev _ Beach-52.jpg");
+    display: flex;
 
+    justify-content: center;
 
-    background-size:cover;
-
-
-    background-position:center;
-
-
-    position:relative;
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
+    align-items: center;
 }
-
-
-
-
 
 .footer-overlay {
+    position: absolute;
 
+    inset: 0;
 
-    position:absolute;
-
-
-    inset:0;
-
-
-    background:
-
-    rgba(0,0,0,.35);
-
-
+    background: rgba(0, 0, 0, 0.35);
 }
-
-
-
 
 .footer-content {
+    position: relative;
 
+    color: white;
 
-    position:relative;
-
-
-    color:white;
-
-
-    text-align:center;
-
-
+    text-align: center;
 }
-
-
-
 
 .footer-content h2 {
+    font-family: "Playwrite ID", cursive;
 
+    font-size: 70px;
 
-    font-family:
-
-    "Playwrite ID",cursive;
-
-
-    font-size:70px;
-
-
-    font-weight:300;
-
-
+    font-weight: 300;
 }
-
-
-
 
 .footer-content p {
+    font-size: 35px;
 
-
-    font-size:35px;
-
-
-    margin-top:25px;
-
-
+    margin-top: 25px;
 }
-
-
-
 
 .footer-content span {
+    display: block;
 
+    margin-top: 20px;
 
-    display:block;
-
-
-    margin-top:20px;
-
-
-    letter-spacing:5px;
-
-
+    letter-spacing: 5px;
 }
 
-
-
-
+.hero-title,
+.letter h2,
+.footer-content h2 {
+    font-family: "Marck Script", cursive;
+}
 
 /* ===================================
         REVEAL ANIMATION READY
 =================================== */
 
-
 .reveal-left,
-
 .reveal-right {
+    opacity: 0;
 
-
-    opacity:0;
-
-
-    transition:
-
-    1s ease;
-
-
+    transition: 1s ease;
 }
-
-
 
 .reveal-left {
-
-
-    transform:
-
-    translateX(-80px);
-
-
+    transform: translateX(-80px);
 }
-
-
 
 .reveal-right {
-
-
-    transform:
-
-    translateX(80px);
-
-
+    transform: translateX(80px);
 }
-
-
 
 .active {
+    opacity: 1;
 
-
-    opacity:1;
-
-
-    transform:translateX(0);
-
-
+    transform: translateX(0);
 }
-
-
-
-
 
 /* ===================================
             KEYFRAMES
 =================================== */
 
-
 @keyframes fadeDown {
+    from {
+        opacity: 0;
 
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(-40px);
-
+        transform: translateY(-40px);
     }
 
+    to {
+        opacity: 1;
 
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
+        transform: translateY(0);
     }
-
-
 }
-
-
 
 @keyframes fadeUp {
+    from {
+        opacity: 0;
 
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
+        transform: translateY(40px);
     }
 
+    to {
+        opacity: 1;
 
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
+        transform: translateY(0);
     }
-
-
 }
-
-
 
 @keyframes titleShow {
+    from {
+        opacity: 0;
 
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.8);
-
+        transform: scale(0.8);
     }
 
+    to {
+        opacity: 1;
 
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
+        transform: scale(1);
     }
-
-
 }
-
-
 
 @keyframes scrollWheel {
-
-
-    0%{
-
-        transform:translateY(0);
-
+    0% {
+        transform: translateY(0);
     }
 
-
-    50%{
-
-        transform:translateY(12px);
-
+    50% {
+        transform: translateY(12px);
     }
 
-
-    100%{
-
-        transform:translateY(0);
-
+    100% {
+        transform: translateY(0);
     }
-
-
 }
+
 /* ===================================
             RESPONSIVE
 =================================== */
 
-
 @media (max-width: 992px) {
-
-
     .hero-title {
-
-        font-size:70px;
-
+        font-size: 70px;
     }
-
-
 
     .mainMaps {
-
-        grid-template-columns:
-
-        repeat(2,1fr);
-
+        grid-template-columns: repeat(2, 1fr);
     }
-
-
 
     .timeline-card .time {
-
-        font-size:45px;
-
+        font-size: 45px;
     }
-
-
 }
 
-
-
-
-
-@media (max-width:768px) {
-
-
+@media (max-width: 768px) {
     .envelope {
+        width: 330px;
 
-        width:330px;
-
-        height:220px;
-
+        height: 220px;
     }
-
-
 
     .letter h2 {
-
-        font-size:28px;
-
+        font-size: 28px;
     }
-
-
 
     .letter p {
-
-        font-size:15px;
-
+        font-size: 15px;
     }
-
-
 
     #openInvitation {
+        padding: 12px 22px;
 
-        padding:12px 22px;
-
-        font-size:14px;
-
+        font-size: 14px;
     }
-
-
-
 
     /* HERO */
 
-
     .hero {
-
-        height:100svh;
-
+        background-position: center;
+        background-size: cover;
     }
-
-
 
     .hero-date {
+        font-size: 16px;
 
-        font-size:16px;
-
-        letter-spacing:5px;
-
+        letter-spacing: 5px;
     }
-
-
-
 
     .hero-title {
-
-        font-size:48px;
-
+        font-size: 48px;
     }
-
-
-
 
     .hero-text {
+        font-size: 17px;
 
-        font-size:17px;
-
-        line-height:1.7;
-
+        line-height: 1.7;
     }
-
-
-
 
     /* SECTION TITLES */
 
-
     .section-title h2 {
-
-        font-size:32px;
-
+        font-size: 32px;
     }
-
-
 
     .bg-text {
-
-        font-size:55px;
-
+        font-size: 55px;
     }
-
-
-
-
 
     /* COUNTDOWN */
 
-
     .countdown {
+        display: grid;
 
+        grid-template-columns: repeat(2, 1fr);
 
-        display:grid;
-
-
-        grid-template-columns:
-
-        repeat(2,1fr);
-
-
-        gap:15px;
-
-
+        gap: 15px;
     }
-
-
 
     .time-box {
+        min-width: auto;
 
-
-        min-width:auto;
-
-        padding:20px 10px;
-
-
+        padding: 20px 10px;
     }
-
-
 
     .time-box span {
-
-
-        font-size:55px;
-
-
+        font-size: 55px;
     }
-
-
 
     .time-box p {
-
-
-        font-size:18px;
-
-
+        font-size: 18px;
     }
-
-
 
     .separator {
-
-        display:none;
-
+        display: none;
     }
-
-
-
-
 
     .invite-text p {
-
-
-        font-size:18px;
-
-
+        font-size: 18px;
     }
-
-
-
-
-
-
 
     /* TIMELINE */
 
-
     .timeline {
-
-
-        gap:40px;
-
+        gap: 40px;
     }
-
-
-
 
     .timeline::before {
-
-
-        left:25px;
-
-
+        left: 25px;
     }
-
-
-
 
     .timeline-item,
-
     .timeline-item.left,
-
     .timeline-item.right {
+        width: 100%;
 
+        align-self: center;
 
-        width:100%;
+        padding-left: 70px;
 
+        padding-right: 0;
 
-        align-self:center;
-
-
-        padding-left:70px;
-
-
-        padding-right:0;
-
-
-        text-align:left;
-
-
+        text-align: left;
     }
-
-
-
 
     .timeline-heart {
+        left: 20px;
 
+        width: 38px;
+        height: 38px;
 
-        left:25px;
-
-
-        width:40px;
-
-
-        height:40px;
-
-
+        transform: translate(-50%, -50%);
     }
-
-
 
     .timeline-card {
-
-
-        padding:25px;
-
-
+        padding: 25px;
     }
-
-
 
     .timeline-card .time {
-
-
-        font-size:38px;
-
+        font-size: 38px;
     }
-
-
 
     .timeline-card h3 {
-
-
-        font-size:22px;
-
+        font-size: 22px;
     }
-
-
-
-
-
 
     /* MAPS */
 
-
     .mainMaps {
-
-
-        grid-template-columns:
-
-        1fr;
-
-
+        grid-template-columns: 1fr;
     }
-
-
 
     .map-image img {
-
-
-        height:250px;
-
-
+        height: 250px;
     }
-
-
-
-
-
-
 
     /* FOOTER */
 
-
     .footer-image {
-
-
-        height:80vh;
-
-
+        height: 80vh;
     }
-
-
 
     .footer-content h2 {
-
-
-        font-size:42px;
-
-
+        font-size: 42px;
     }
-
-
 
     .footer-content p {
-
-
-        font-size:25px;
-
-
+        font-size: 25px;
     }
-
-
-
-
 
     .audio-btn {
+        width: 50px;
 
+        height: 50px;
 
-        width:50px;
+        right: 15px;
 
-
-        height:50px;
-
-
-        right:15px;
-
-
-        bottom:15px;
-
-
+        bottom: 15px;
     }
-
-
-
 }
 
-
-
-
-
-@media (max-width:420px) {
-
-
-
+@media (max-width: 420px) {
     .hero-title {
-
-
-        font-size:38px;
-
-
+        font-size: 38px;
     }
-
-
-
 
     .countdown {
-
-
-        grid-template-columns:
-
-        1fr 1fr;
-
-
+        grid-template-columns: 1fr 1fr;
     }
-
-
-
 
     .time-box span {
-
-
-        font-size:42px;
-
-
+        font-size: 42px;
     }
-
-
-
 
     .section-title h2 {
-
-
-        font-size:27px;
-
-
+        font-size: 27px;
     }
-
-
-
 
     .footer-content h2 {
-
-
-        font-size:34px;
-
-
+        font-size: 34px;
     }
-
-
-
 }
-

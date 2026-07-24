@@ -2,322 +2,304 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* ===================================
-        ENVELOPE OPEN
-=================================== */
+    /* ===================================
+            ENVELOPE OPEN
+    =================================== */
 
 
-const envelopeScreen = document.getElementById(
-    "envelope-screen"
-);
+    const envelopeScreen = document.getElementById(
+        "envelope-screen"
+    );
 
 
-const envelope = document.querySelector(
-    ".envelope"
-);
+    const envelope = document.querySelector(
+        ".envelope"
+    );
 
 
-const openButton = document.getElementById(
-    "openInvitation"
-);
+    const openButton = document.getElementById(
+        "openInvitation"
+    );
 
 
-const website = document.getElementById(
-    "website"
-);
-
-
-
-const audio = document.getElementById(
-    "wedding-audio"
-);
+    const website = document.getElementById(
+        "website"
+    );
 
 
 
-openButton.addEventListener("click", async () => {
-
-
-    envelope.classList.add("open");
-
-
-    setTimeout(() => {
-
-
-        envelopeScreen.classList.add("hide");
-
-
-        website.classList.add("show");
-
-
-    },1000);
+    const audio = document.getElementById(
+        "wedding-audio"
+    );
 
 
 
-
-    try {
-
-
-        audio.volume = 0.7;
+    openButton.addEventListener("click", async () => {
 
 
-        await audio.play();
+        envelope.classList.add("open");
+
+
+        setTimeout(() => {
+
+
+            envelopeScreen.classList.add("hide");
+
+
+            website.classList.add("show");
+
+
+        }, 1000);
 
 
 
-    }
 
-    catch(error){
+        try {
 
-        console.log(
-            "Audio waiting for user interaction"
+            audio.volume = 0.7;
+
+            await audio.play();
+
+            playing = true;
+
+            audioButton.innerHTML = "🔊";
+
+        } catch (error) {
+
+            console.log(
+                "Audio waiting for user interaction"
+            );
+
+        }
+
+
+
+    });
+
+
+
+
+
+
+    /* ===================================
+            AUDIO BUTTON
+    =================================== */
+
+
+    const audioButton = document.getElementById(
+        "audio-btn"
+    );
+
+    let playing = false;
+
+
+
+    audioButton.addEventListener(
+        "click",
+        async () => {
+
+            if (playing) {
+
+                audio.pause();
+
+                audioButton.innerHTML = "🔇";
+
+                playing = false;
+
+            } else {
+
+                await audio.play();
+
+                audioButton.innerHTML = "🔊";
+
+                playing = true;
+
+            }
+
+        });
+
+
+
+
+
+
+
+
+    /* ===================================
+            COUNTDOWN
+    =================================== */
+
+
+    const weddingDate =
+        new Date(
+            "2026-10-23T18:00:00"
         );
 
-    }
 
 
 
-});
+    function updateCountdown() {
 
 
 
+        const now = new Date();
 
 
 
-/* ===================================
-        AUDIO BUTTON
-=================================== */
+        const difference =
+            weddingDate - now;
 
 
-const audioButton = document.getElementById(
-    "audio-btn"
-);
 
+        if (difference <= 0) {
 
+            document.getElementById("days").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
 
-let playing = false;
+            return;
 
+        }
 
 
-audioButton.addEventListener(
-"click",
-async()=>{
 
+        const days =
+            Math.floor(
+                difference /
+                (1000 * 60 * 60 * 24)
+            );
 
-    if(playing){
 
 
-        audio.pause();
+        const hours =
+            Math.floor(
+                (difference %
+                    (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
 
 
-        audioButton.innerHTML="🔇";
 
+        const minutes =
+            Math.floor(
+                (difference %
+                    (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
 
-        playing=false;
 
 
+        const seconds =
+            Math.floor(
+                (difference %
+                    (1000 * 60)) /
+                1000
+            );
 
-    }
 
-    else{
 
 
-        await audio.play();
+        document.getElementById(
+                "days"
+            ).innerHTML =
+            String(days).padStart(2, "0");
 
 
-        audioButton.innerHTML="🔊";
 
+        document.getElementById(
+                "hours"
+            ).innerHTML =
+            String(hours).padStart(2, "0");
 
-        playing=true;
 
 
+        document.getElementById(
+                "minutes"
+            ).innerHTML =
+            String(minutes).padStart(2, "0");
 
-    }
 
 
+        document.getElementById(
+                "seconds"
+            ).innerHTML =
+            String(seconds).padStart(2, "0");
 
-});
 
-
-
-
-
-
-
-
-/* ===================================
-        COUNTDOWN
-=================================== */
-
-
-const weddingDate =
-new Date(
-"2026-10-23T18:00:00"
-);
-
-
-
-
-function updateCountdown(){
-
-
-
-    const now = new Date();
-
-
-
-    const difference =
-    weddingDate - now;
-
-
-
-    if(difference <=0){
-
-        return;
 
     }
 
 
 
-    const days =
-    Math.floor(
-        difference /
-        (1000*60*60*24)
-    );
+    updateCountdown();
 
 
-
-    const hours =
-    Math.floor(
-        (difference %
-        (1000*60*60*24))
-        /
-        (1000*60*60)
-    );
-
-
-
-    const minutes =
-    Math.floor(
-        (difference %
-        (1000*60*60))
-        /
-        (1000*60)
-    );
-
-
-
-    const seconds =
-    Math.floor(
-        (difference %
-        (1000*60))
-        /
+    setInterval(
+        updateCountdown,
         1000
     );
 
 
 
 
-    document.getElementById(
-        "days"
-    ).innerHTML =
-    String(days).padStart(2,"0");
 
 
 
-    document.getElementById(
-        "hours"
-    ).innerHTML =
-    String(hours).padStart(2,"0");
+    /* ===================================
+            SCROLL ANIMATION
+    =================================== */
+
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal-left, .reveal-right"
+        );
 
 
 
-    document.getElementById(
-        "minutes"
-    ).innerHTML =
-    String(minutes).padStart(2,"0");
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
 
 
-
-    document.getElementById(
-        "seconds"
-    ).innerHTML =
-    String(seconds).padStart(2,"0");
+                entries.forEach(
+                    (entry) => {
 
 
-
-}
-
+                        if (entry.isIntersecting) {
 
 
-updateCountdown();
+                            entry.target.classList.add(
+                                "active"
+                            );
 
 
-setInterval(
-    updateCountdown,
-    1000
-);
+                        }
 
 
+                    });
 
 
+            }, {
 
+                threshold: 0.2
 
-
-/* ===================================
-        SCROLL ANIMATION
-=================================== */
-
-
-const revealElements =
-document.querySelectorAll(
-".reveal-left, .reveal-right"
-);
-
-
-
-const observer =
-new IntersectionObserver(
-(entries)=>{
-
-
-entries.forEach(
-(entry)=>{
-
-
-if(entry.isIntersecting){
-
-
-    entry.target.classList.add(
-        "active"
-    );
-
-
-}
-
-
-});
-
-
-},
-{
-
-threshold:0.2
-
-});
+            });
 
 
 
 
 
-revealElements.forEach(
-(element)=>{
+    revealElements.forEach(
+        (element) => {
 
 
-observer.observe(element);
+            observer.observe(element);
 
 
 
-});
+        });
 
 
 
