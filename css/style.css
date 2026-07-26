@@ -833,7 +833,7 @@ button {
 .footer-content span {
     display: block;
 
-    margin-top: 20px;
+    /* margin-top: 20px; */
 
     letter-spacing: 5px;
 }
