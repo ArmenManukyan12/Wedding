@@ -823,8 +823,15 @@ button {
 
     letter-spacing: 5px;
 }
+@font-face {
+    font-family: "My Font";
+    src: url("../fontFamily/Vrdznagir.otf") format("truetype");
+}
 
-.hero-title,
+.hero-title {
+    font-family: "My Font" !important;
+    font-size: 60px;
+}
 .letter h2,
 .footer-content h2 {
     font-family: "Marck Script", cursive;
