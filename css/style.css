@@ -669,6 +669,11 @@ button {
 .timeline-card strong {
     color: #4b3a25;
 }
+.heart::before {
+    content: "♥";
+    font-family: Arial, sans-serif;
+    color: #d6b98c;
+}
 
 .timeline-heart {
     position: absolute;
