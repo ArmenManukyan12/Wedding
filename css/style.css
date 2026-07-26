@@ -28,7 +28,16 @@ body {
     font-family: "Playwrite ID", cursive;
     -webkit-overflow-scrolling: touch;
 }
+@font-face {
+    font-family: "allFont";
+    src: url("../fontFamily/Vrdznagir.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
 
+.h1,h2,h3,h4,h5,h6,span,p{
+    font-family: "My Font", sans-serif !important;
+}
 img {
     -webkit-user-drag: none;
     max-width: 100%;
@@ -825,12 +834,11 @@ button {
 }
 @font-face {
     font-family: "My Font";
-    src: url("../fontFamily/Vrdznagir.otf") format("opentype");
+    src: url("../fontFamily/SHK_Dzeragir.otf") format("opentype");
 }
 
 .hero-title {
     font-family: "My Font" !important;
-    font-size: 60px;
 }
 .letter h2,
 .footer-content h2 {
