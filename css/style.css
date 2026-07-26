@@ -1064,12 +1064,22 @@ button {
     }
 
     .timeline-heart {
-        left: 20px;
-
+        /* left: 20px; */
         width: 38px;
         height: 38px;
-
+        /* transform: translate(-50%, -50%); */
+    }
+    .timeline-heart:not(.top-heart) {
+        left: 20px;
         transform: translate(-50%, -50%);
+    }
+
+    .top-heart {
+        left: 25px;
+    }
+
+    .heart::before {
+        font-size: 22px;
     }
 
     .timeline-card {
