@@ -1,83 +1,97 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ===================================
-            ALWAYS START FROM TOP
-    =================================== */
+    /* =====================================================
+       PAGE START
+    ===================================================== */
 
     history.scrollRestoration = "manual";
 
     window.scrollTo(0, 0);
 
 
-    /* ===================================
-            ELEMENTS
-    =================================== */
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
 
-    const envelopeScreen = document.getElementById("envelope-screen");
-    const envelope = document.querySelector(".envelope");
-    const openButton = document.getElementById("openInvitation");
-    const website = document.getElementById("website");
+    const luxuryOpening =
+        document.getElementById("luxuryOpening");
 
-    const audio = document.getElementById("wedding-audio");
-    const audioButton = document.getElementById("audio-btn");
+    const waxSeal =
+        document.getElementById("waxSeal");
 
-    let playing = false;
+    const website =
+        document.getElementById("website");
 
+    const audio =
+        document.getElementById("wedding-audio");
 
-    /* ===================================
-            ENVELOPE OPEN
-    =================================== */
-
-    openButton.addEventListener("click", async () => {
-
-        // Ապահովում ենք, որ կայքը բացվի ամենասկզբից
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "instant"
-        });
-
-        envelope.classList.add("open");
+    const audioButton =
+        document.getElementById("audio-btn");
 
 
+    /* =====================================================
+       LUXURY ENVELOPE
+    ===================================================== */
+
+    waxSeal.addEventListener("click", async () => {
+
+        /* Prevent second click */
+        waxSeal.disabled = true;
+
+
+        /* Seal animation */
+        waxSeal.classList.add("cracking");
+
+
+        /* Open envelope */
         setTimeout(() => {
 
-            envelopeScreen.classList.add("hide");
+            luxuryOpening.classList.add("opened");
+
+        }, 450);
+
+
+        /* Show website */
+        setTimeout(() => {
+
+            luxuryOpening.classList.add("finished");
+
             website.classList.add("show");
 
-            // Envelope-ից հետո նույնպես վերևից
             window.scrollTo({
                 top: 0,
                 left: 0,
                 behavior: "instant"
             });
 
-        }, 1000);
 
-
-        /* ---------- AUDIO ---------- */
-
-        try {
+            /* Try to start music */
 
             audio.volume = 0.7;
 
-            await audio.play();
+            audio.play()
+                .then(() => {
 
-            playing = true;
-            audioButton.innerHTML = "🔊";
+                    audioButton.textContent = "🔊";
 
-        } catch (error) {
+                })
+                .catch(() => {
 
-            console.log("Audio waiting for user interaction");
+                    audioButton.textContent = "🔇";
 
-        }
+                });
+
+        }, 2600);
 
     });
 
 
-    /* ===================================
-            AUDIO BUTTON
-    =================================== */
+    /* =====================================================
+       AUDIO
+    ===================================================== */
+
+    let playing = false;
+
 
     audioButton.addEventListener("click", async () => {
 
@@ -85,40 +99,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
             audio.pause();
 
-            audioButton.innerHTML = "🔇";
-
             playing = false;
 
-        } else {
+            audioButton.textContent = "🔇";
 
-            try {
+            return;
+        }
 
-                await audio.play();
 
-                audioButton.innerHTML = "🔊";
+        try {
 
-                playing = true;
+            await audio.play();
 
-            } catch (error) {
+            playing = true;
 
-                console.log("Audio could not be played");
+            audioButton.textContent = "🔊";
 
-            }
+        } catch (error) {
+
+            console.log("Audio could not be played.");
 
         }
 
     });
 
 
-    /* ===================================
-            COUNTDOWN
-    =================================== */
+    /* =====================================================
+       COUNTDOWN
+    ===================================================== */
 
-    const weddingDate = new Date("2026-10-23T18:00:00");
+    const weddingDate =
+        new Date("2026-10-23T18:00:00");
+
 
     function updateCountdown() {
 
-        const difference = weddingDate - new Date();
+        const difference =
+            weddingDate.getTime() - Date.now();
+
 
         if (difference <= 0) {
 
@@ -131,24 +149,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        const days = Math.floor(
-            difference / (1000 * 60 * 60 * 24)
-        );
+        const days =
+            Math.floor(
+                difference / (1000 * 60 * 60 * 24)
+            );
 
-        const hours = Math.floor(
-            (difference % (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
-        );
 
-        const minutes = Math.floor(
-            (difference % (1000 * 60 * 60)) /
-            (1000 * 60)
-        );
+        const hours =
+            Math.floor(
+                (difference % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
 
-        const seconds = Math.floor(
-            (difference % (1000 * 60)) /
-            1000
-        );
+
+        const minutes =
+            Math.floor(
+                (difference % (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (difference % (1000 * 60)) /
+                1000
+            );
 
 
         document.getElementById("days").textContent =
@@ -162,41 +187,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.getElementById("seconds").textContent =
             String(seconds).padStart(2, "0");
+
     }
+
 
     updateCountdown();
 
     setInterval(updateCountdown, 1000);
 
 
-    /* ===================================
-            SCROLL ANIMATION
-    =================================== */
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
 
-    const revealElements = document.querySelectorAll(
-        ".reveal-left, .reveal-right"
-    );
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal-left, .reveal-right"
+        );
 
-    const observer = new IntersectionObserver(
-        (entries) => {
 
-            entries.forEach((entry) => {
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
 
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("active");
-                }
+                entries.forEach((entry) => {
 
-            });
+                    if (entry.isIntersecting) {
 
-        },
-        {
-            threshold: 0.2
-        }
-    );
+                        entry.target.classList.add("active");
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.2
+            }
+        );
 
 
     revealElements.forEach((element) => {
+
         observer.observe(element);
+
     });
 
 });

@@ -1,257 +1,447 @@
 <!doctype html>
 <html lang="hy">
+
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>A & T</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Արմեն & Տաթև</title>
+
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Work+Sans:wght@300;400;500&display=swap"
-        rel="stylesheet" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Work+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    />
+
     <link
         href="https://fonts.googleapis.com/css2?family=Playwrite+ID:wght@100..400&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet"
+    />
 </head>
+
 <body>
-    <!-- =========================
-            ENVELOPE SCREEN
-    ========================== -->
 
-    <div id="envelope-screen">
+    <!-- =====================================================
+         LUXURY OPENING
+    ====================================================== -->
 
-    <div class="envelope">
+    <div class="luxury-opening" id="luxuryOpening">
 
-        <div class="envelope-back"></div>
-
-        <div class="letter">
-<!-- 
-            <h2>Արմեն <span class="heart"></span> Տաթև</h2>
-
-            <p>Սիրով հրավիրում ենք</p> -->
-
-            <button id="openInvitation">
-                Բացել հրավիրատոմսը
-            </button>
-
+        <div class="opening-brand">
+            Wedding Invitation
         </div>
 
-        <div class="envelope-flap envelope-flap-top"></div>
+        <div class="envelope-stage">
 
-        <div class="envelope-flap envelope-flap-bottom"></div>
+            <div class="envelope">
+
+                <div class="envelope-back"></div>
+
+                <div class="letter">
+                    <div class="letter-inner">
+
+                        <div class="letter-kicker">
+                            THE WEDDING OF
+                        </div>
+
+                        <div class="letter-names">
+                            Արմեն
+                            <br>
+                            <span>&amp;</span>
+                            <br>
+                            Տաթև
+                        </div>
+
+                        <div class="letter-date">
+                            23 · 10 · 2026
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="envelope-left"></div>
+
+                <div class="envelope-right"></div>
+
+                <div class="envelope-bottom"></div>
+
+                <div class="envelope-flap"></div>
+
+                <button
+                    class="wax-seal"
+                    id="waxSeal"
+                    type="button"
+                    aria-label="Բացել հրավերը"
+                >
+                    <span class="wax-monogram">
+                        Ա &amp; Տ
+                    </span>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="open-hint">
+            Tap the seal to open
+        </div>
 
     </div>
 
-</div>
 
-
-    <!-- =========================
-            WEBSITE
-    ========================== -->
+    <!-- =====================================================
+         WEBSITE
+    ====================================================== -->
 
     <main id="website">
-        <!-- ================= HERO ================= -->
+
+        <!-- HERO -->
 
         <section class="hero">
+
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
-                <span class="hero-date"> 23 • 10 • 2026 </span>
 
-                <h1 class="hero-title">Արմեն <span class="heart"></span> Տաթև</h1>
+                <span class="hero-date">
+                    23 • 10 • 2026
+                </span>
+
+                <h1 class="hero-title">
+                    Արմեն <span class="heart"></span> Տաթև
+                </h1>
+
             </div>
+
         </section>
 
-        <!-- ================= AUDIO ================= -->
+
+        <!-- AUDIO -->
 
         <audio id="wedding-audio" loop>
             <source src="./song/song.mp4" type="audio/mp4" />
         </audio>
 
-        <button id="audio-btn" class="audio-btn">🔊</button>
-        <!-- ================= COUNTDOWN ================= -->
+        <button
+            id="audio-btn"
+            class="audio-btn"
+            type="button"
+            aria-label="Միացնել կամ անջատել երաժշտությունը"
+        >
+            🔇
+        </button>
+
+
+        <!-- COUNTDOWN -->
 
         <section class="countdown-section">
-            <div class="section-title">
-                <span class="bg-text"> ՄԻՋՈՑԱՌՄԱՆԸ ՄՆԱՑ </span>
 
-                <h2>Միջոցառմանը մնաց</h2>
+            <div class="section-title">
+
+                <span class="bg-text">
+                    ՄԻՋՈՑԱՌՄԱՆԸ ՄՆԱՑ
+                </span>
+
+                <h2>
+                    Միջոցառմանը մնաց
+                </h2>
+
             </div>
 
             <div class="countdown">
-                <div class="time-box">
-                    <span id="days"> 00 </span>
 
+                <div class="time-box">
+                    <span id="days">00</span>
                     <p>Օր</p>
                 </div>
 
                 <div class="separator">:</div>
 
                 <div class="time-box">
-                    <span id="hours"> 00 </span>
-
+                    <span id="hours">00</span>
                     <p>Ժամ</p>
                 </div>
 
                 <div class="separator">:</div>
 
                 <div class="time-box">
-                    <span id="minutes"> 00 </span>
-
+                    <span id="minutes">00</span>
                     <p>Րոպե</p>
                 </div>
 
                 <div class="separator">:</div>
 
                 <div class="time-box">
-                    <span id="seconds"> 00 </span>
-
+                    <span id="seconds">00</span>
                     <p>Վրկ</p>
                 </div>
+
             </div>
 
-            <div class="invite-text">
-                <div class="section-title">
-                    <span class="bg-text"> ԲԱՐԵԿԱՄՆԵՐ ԵՎ ԸՆԿԵՐՆԵՐ </span>
 
-                    <h2>Սիրելի բարեկամներ և ընկերներ</h2>
+            <!-- INVITATION TEXT -->
+
+            <div class="invite-text">
+
+                <div class="section-title">
+
+                    <span class="bg-text">
+                        ԲԱՐԵԿԱՄՆԵՐ ԵՎ ԸՆԿԵՐՆԵՐ
+                    </span>
+
+                    <h2>
+                        Սիրելի բարեկամներ և ընկերներ
+                    </h2>
+
                 </div>
 
                 <p>
-                    Ուրախությամբ հրավիրում ենք Ձեզ դառնալու մեր կյանքի ամենագեղեցիկ օրվա
-                    մասնակիցը։
+                    Ուրախությամբ հրավիրում ենք Ձեզ դառնալու
+                    մեր կյանքի ամենագեղեցիկ օրվա մասնակիցը։
                 </p>
+
             </div>
+
         </section>
-        <!-- =========================
-        WEDDING TIMELINE
-========================= -->
+
+
+        <!-- TIMELINE -->
 
         <section class="wedding-timeline">
+
             <div class="section-title">
-                <span class="bg-text"> OUR DAY </span>
+                <span class="bg-text">
+                    OUR DAY
+                </span>
             </div>
 
             <div class="timeline">
+
                 <div class="timeline-heart top-heart">
                     <span class="heart"></span>
                 </div>
+
+
                 <div class="timeline-item left reveal-left">
+
                     <div class="timeline-card glass">
-                        <span class="time"> 12:00 </span>
 
-                        <h3>Առավոտյան միջոցառում</h3>
+                        <span class="time">
+                            12:00
+                        </span>
 
-                        <p>Արգավանդ</p>
+                        <h3>
+                            Առավոտյան միջոցառում
+                        </h3>
 
-                        <strong> Andy's Garden </strong>
+                        <p>
+                            Արգավանդ
+                        </p>
+
+                        <strong>
+                            Andy's Garden
+                        </strong>
+
                     </div>
+
                 </div>
+
 
                 <div class="timeline-item right reveal-right">
+
                     <div class="timeline-card glass">
-                        <span class="time"> 14:00 </span>
 
-                        <h3>Պսակադրություն</h3>
+                        <span class="time">
+                            14:00
+                        </span>
 
-                        <p>Ք. Երևան</p>
+                        <h3>
+                            Պսակադրություն
+                        </h3>
 
-                        <strong> Սուրբ Սարգիս եկեղեցի </strong>
+                        <p>
+                            Ք. Երևան
+                        </p>
+
+                        <strong>
+                            Սուրբ Սարգիս եկեղեցի
+                        </strong>
+
                     </div>
+
                 </div>
 
 
                 <div class="timeline-item left reveal-left">
+
                     <div class="timeline-card glass">
-                        <span class="time"> 18:00 </span>
 
-                        <h3>Հարսանեկան արարողություն</h3>
+                        <span class="time">
+                            18:00
+                        </span>
 
-                        <p>Lianna Garden Hall</p>
+                        <h3>
+                            Հարսանեկան արարողություն
+                        </h3>
+
+                        <p>
+                            Lianna Garden Hall
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
-        <!-- =========================
-        LOCATION
-========================= -->
+
+
+        <!-- LOCATION -->
 
         <section class="weddingLocation">
-            <div class="section-title">
-                <span class="bg-text"> LOCATION </span>
 
-                <h2>Ինչպես հասնել</h2>
+            <div class="section-title">
+
+                <span class="bg-text">
+                    LOCATION
+                </span>
+
+                <h2>
+                    Ինչպես հասնել
+                </h2>
+
             </div>
+
 
             <div class="mainMaps">
+
                 <div class="map-card glass reveal-left">
+
                     <div class="map-image">
-                        <img src="img/WhatsApp Image 2026-07-19 at 11.59.03.jpeg" alt="Andy's Garden" />
+                        <img
+                            src="img/WhatsApp Image 2026-07-19 at 11.59.03.jpeg"
+                            alt="Andy's Garden"
+                        />
                     </div>
 
                     <div class="map-content">
-                        <h3>Andy's Garden</h3>
 
-                        <a href="https://yandex.com/maps/org/andy_garden/168821831420/reviews/?ll=44.420508%2C40.156545&z=15.94"
-                            target="_blank">
+                        <h3>
+                            Andy's Garden
+                        </h3>
+
+                        <a
+                            href="https://yandex.com/maps/org/andy_garden/168821831420/reviews/?ll=44.420508%2C40.156545&z=15.94"
+                            target="_blank"
+                            rel="noopener"
+                        >
                             📍 Բացել քարտեզը
                         </a>
+
                     </div>
+
                 </div>
+
 
                 <div class="map-card glass reveal-right">
+
                     <div class="map-image">
-                        <img src="img/St.Sarqis.jpg" alt="St.Sargis" />
+
+                        <img
+                            src="img/St.Sarqis.jpg"
+                            alt="St. Sargis"
+                        />
+
                     </div>
 
                     <div class="map-content">
-                        <h3>St.Sargis</h3>
 
-                        <a href="https://yandex.com/maps/10262/yerevan/house/rafayel_israyelyan_poghots_21/YE0YcwdhTkIBQFpqfX12dn9gZg==/?indoorLevel=1&ll=44.501775%2C40.177332&z=16.67"
-                            target="_blank">
+                        <h3>
+                            St. Sargis
+                        </h3>
+
+                        <a
+                            href="https://yandex.com/maps/10262/yerevan/house/rafayel_israyelyan_poghots_21/YE0YcwdhTkIBQFpqfX12dn9gZg==/?indoorLevel=1&ll=44.501775%2C40.177332&z=16.67"
+                            target="_blank"
+                            rel="noopener"
+                        >
                             📍 Բացել քարտեզը
                         </a>
+
                     </div>
+
                 </div>
+
 
                 <div class="map-card glass reveal-left">
+
                     <div class="map-image">
-                        <img src="img/5dc280f62996972110869_2460824840867669_7676507490384609280_o.jpg-resize.jpg"
-                            alt="Lianna Garden Hall" />
+
+                        <img
+                            src="img/5dc280f62996972110869_2460824840867669_7676507490384609280_o.jpg-resize.jpg"
+                            alt="Lianna Garden Hall"
+                        />
+
                     </div>
 
                     <div class="map-content">
-                        <h3>Lianna Garden Hall</h3>
 
-                        <a href="https://yandex.com/maps/105791/armavir/house/yeritasardutyan_poghots_34/YE0YdQ5hTUIGQFpqfX13dXplYg==/?ll=44.391729%2C40.164665&z=21"
-                            target="_blank">
+                        <h3>
+                            Lianna Garden Hall
+                        </h3>
+
+                        <a
+                            href="https://yandex.com/maps/105791/armavir/house/yeritasardutyan_poghots_34/YE0YdQ5hTUIGQFpqfX13dXplYg==/?ll=44.391729%2C40.164665&z=21"
+                            target="_blank"
+                            rel="noopener"
+                        >
                             📍 Բացել քարտեզը
                         </a>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
-        <!-- =========================
-        FOOTER
-========================= -->
+
+
+        <!-- FOOTER -->
 
         <footer class="footer">
+
             <div class="footer-image">
+
                 <div class="footer-overlay"></div>
 
                 <div class="footer-content">
-                    <h2>Սիրով կսպասենք Ձեզ</h2>
 
-                    <p>Արմեն <span class="heart"></span> Տաթև</p>
+                    <h2>
+                        Սիրով կսպասենք Ձեզ
+                    </h2>
+
+                    <p>
+                        Արմեն <span class="heart"></span> Տաթև
+                    </p>
+
                 </div>
+
             </div>
+
         </footer>
+
     </main>
 
-    <!-- =========================
-        SCRIPTS
-========================= -->
+
+    <!-- JAVASCRIPT -->
 
     <script src="js/main.js"></script>
+
 </body>
 </html>
